@@ -1,6 +1,7 @@
 var config = null;
 var currentValue = null;
 var isDisabled = true;
+var isVisible = false;
 
 function updateDisabled(disabled) {
   const elements = $(".selector").add(".remove").add(".spacer");
@@ -107,7 +108,10 @@ function setupSelector(value) {
 
 function updateSize() {
   // Update the custom element height in the Kentico UI.
-  const height = Math.ceil($("html").height());
+  const height = isVisible ? 
+    (window.screen.height - 300) :
+    Math.ceil($("html").height());
+  
   CustomElement.setHeight(height);
 }
 
@@ -125,7 +129,14 @@ function initCustomElement() {
         },
         {
           insertHandler: function (data) {
+            isVisible = false;
             updateValue(data.assets);
+          },
+          showHandler: () => {
+            isVisible = true;
+          },
+          hideHandler: () => {
+            isVisible = false;
           },
         },
         document.getElementById("open-btn")
