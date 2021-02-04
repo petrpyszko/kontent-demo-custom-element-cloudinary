@@ -134,9 +134,11 @@ function initCustomElement() {
           },
           showHandler: () => {
             isVisible = true;
+            updateSize();
           },
           hideHandler: () => {
             isVisible = false;
+            updateSize();
           },
         },
         document.getElementById("open-btn")
