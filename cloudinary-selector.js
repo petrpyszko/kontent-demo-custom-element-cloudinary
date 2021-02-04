@@ -107,10 +107,7 @@ function setupSelector(value) {
 
 function updateSize() {
   // Update the custom element height in the Kentico UI.
-  const height = isDisabled
-    ? Math.ceil($("html").height())
-    : window.screen.height - 300;
-
+  const height = Math.ceil($("html").height());
   CustomElement.setHeight(height);
 }
 
