@@ -98,7 +98,7 @@ function imageTile($parent, item) {
 function changeExt(fileName, newExt) {
   var pos = fileName.includes(".") ? fileName.lastIndexOf(".") : fileName.length
   var fileRoot = fileName.substr(0, pos)
-  var output = `${fileRoot}.${newExt}`
+  var output = `${fileRoot}${newExt}`
   return output
 }
 
