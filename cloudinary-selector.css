@@ -62,6 +62,11 @@ body {
   cursor: default;
   background-color: hsla(0, 0%, 96.1%, 0.85);
 }
+.title .preview {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 .tile .actions .action i {
   padding: 8px 10px;
   font-size: 16px;
