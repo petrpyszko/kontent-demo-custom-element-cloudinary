@@ -73,12 +73,16 @@ function imageTile($parent, item) {
     .click(function () {
       remove(item.public_id);
     });
+  
+  var previewUrl = item.resource_type === "video" ? 
+      changeExt(item.secure_url, ".jpg") :
+      item.secure_url;  
 
-  if (item.secure_url) {
+  if (previewUrl) {
     const $preview = $('<div class="preview"></div>').appendTo($tile);
 
     $('<img draggable="false" class="thumbnail" />')
-      .attr("src", item.secure_url)
+      .attr("src", previewUrl)
       .appendTo($preview)
       .on("load", updateSize);
   } else {
@@ -89,6 +93,13 @@ function imageTile($parent, item) {
   $(`<div class="name">${item.public_id}</div>`).appendTo($info);
 
   updateSize();
+}
+  
+function changeExt(fileName, newExt) {
+  var pos = fileName.includes(".") ? fileName.lastIndexOf(".") : fileName.length
+  var fileRoot = fileName.substr(0, pos)
+  var output = `${fileRoot}.${newExt}`
+  return output
 }
 
 function setupSelector(value) {
