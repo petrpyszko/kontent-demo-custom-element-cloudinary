@@ -62,7 +62,7 @@ body {
   cursor: default;
   background-color: hsla(0, 0%, 96.1%, 0.85);
 }
-.title .preview {
+.tile .preview {
   height: 100%;
   display: flex;
   align-items: center;
