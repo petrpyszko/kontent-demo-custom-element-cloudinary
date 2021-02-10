@@ -66,6 +66,7 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .tile .actions .action i {
   padding: 8px 10px;
